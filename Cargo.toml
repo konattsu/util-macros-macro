@@ -1,0 +1,22 @@
+[package]
+name = "util-macros-macro"
+version = "0.1.0"
+edition = "2021"
+authors = ["konattsu"]
+license-file = "LICENSE"
+license = "Apache License 2.0"
+repository = "https://github.com/konattsu/util-macros-macro"
+
+[dependencies]
+quote = "1.0.37"
+syn = { version = "2", features = ["full", "extra-traits"] }
+proc-macro2 = "1"
+util-macros-core ={ git = "https://github.com/konattsu/util-macros-core" }
+
+[lib]
+proc-macro = true
+
+[features]
+default = []
+choices = []
+full = ["choices"]
