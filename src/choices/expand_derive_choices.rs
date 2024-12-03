@@ -1,6 +1,7 @@
 use proc_macro::TokenStream;
 use proc_macro2::TokenStream as TokenStream2;
 use quote::quote;
+use syn::ItemEnum;
 
 use super::from_str::from_str_quote;
 use super::get_all_choices::get_all_choices_quote;
@@ -17,8 +18,6 @@ pub(crate) fn expand_derive_choices(
     // 型が無ければ (基本的に`attr`から変換するとき) 自作の構造体へ変換すると良い
     // - `syn::parse::Parse` を実装すること
     // - 実装には`i.parse()?`が便利
-
-    use syn::ItemEnum;
 
     let choices = Choices::new(attr, item)?;
     let item_enum = choices.get_item_enum();
